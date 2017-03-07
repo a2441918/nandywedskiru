@@ -13,63 +13,41 @@
         return false;
     });
 
-
-
 })(jQuery);
 
-$(document).ready(function(){
+function openModal() {
+  document.getElementById('myModal').style.display = "block";
+}
 
-    loadGallery(true, 'a.thumbnail');
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+}
 
-    //This function disables buttons when needed
-    function disableButtons(counter_max, counter_current){
-        $('#show-previous-image, #show-next-image').show();
-        if(counter_max == counter_current){
-            $('#show-next-image').hide();
-        } else if (counter_current == 1){
-            $('#show-previous-image').hide();
-        }
-    }
+var slideIndex = 1;
+showSlides(slideIndex);
 
-    /**
-     *
-     * @param setIDs        Sets IDs when DOM is loaded. If using a PHP counter, set to false.
-     * @param setClickAttr  Sets the attribute for the click handler.
-     */
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
 
-    function loadGallery(setIDs, setClickAttr){
-        var current_image,
-            selector,
-            counter = 0;
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
 
-        $('#show-next-image, #show-previous-image').click(function(){
-            if($(this).attr('id') == 'show-previous-image'){
-                current_image--;
-            } else {
-                current_image++;
-            }
-
-            selector = $('[data-image-id="' + current_image + '"]');
-            updateGallery(selector);
-        });
-
-        function updateGallery(selector) {
-            var $sel = selector;
-            current_image = $sel.data('image-id');
-            $('#image-gallery-caption').text($sel.data('caption'));
-            $('#image-gallery-title').text($sel.data('title'));
-            $('#image-gallery-image').attr('src', $sel.data('image'));
-            disableButtons(counter, $sel.data('image-id'));
-        }
-
-        if(setIDs == true){
-            $('[data-image-id]').each(function(){
-                counter++;
-                $(this).attr('data-image-id',counter);
-            });
-        }
-        $(setClickAttr).on('click',function(){
-            updateGallery($(this));
-        });
-    }
-});
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}

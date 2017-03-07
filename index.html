@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/templatemo-style.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -107,29 +108,75 @@
                     <div class="row projects-holder">
                         <div class="col-md-4 col-sm-6">
                             <div class="project-item">
-                                <img src="img/1.jpeg" alt="">
+                                <img src="img/1.jpeg" alt="" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <div class="project-item">
-                                <img src="img/2.jpeg" alt="">
+                                <img src="img/2.jpeg" alt="" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <div class="project-item">
-                                <img src="img/3.jpeg" alt="">
+                                <img src="img/3.jpeg" alt="" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <div class="project-item">
-                                <img src="img/4.jpeg" alt="">
+                                <img src="img/4.jpeg" alt="" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <div class="project-item">
-                                <img src="img/5.jpeg" alt="">
+                                <img src="img/5.jpeg" alt="" onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
                             </div>
                         </div>
+                    </div>
+                    <div id="myModal" class="modal">
+                      <span class="close cursor" onclick="closeModal()">&times;</span>
+                      <div class="modal-content">
+
+                        <div class="mySlides">
+                          <img src="img/1.jpeg" style="width:100%">
+                        </div>
+
+                        <div class="mySlides">
+                          <img src="img/2.jpeg" style="width:100%">
+                        </div>
+
+                        <div class="mySlides">
+                          <img src="img/3.jpeg" style="width:100%">
+                        </div>
+
+                        <div class="mySlides">
+                          <img src="img/4.jpeg" style="width:100%">
+                        </div>
+
+                        <div class="mySlides">
+                          <img src="img/5.jpeg" style="width:100%">
+                        </div>
+
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                        <div class="caption-container">
+                          <p id="caption"></p>
+                        </div>
+
+
+                        <div class="column">
+                          <img class="demo cursor" src="img_nature_wide.jpg" style="width:100%" onclick="currentSlide(1)" alt="Nature and sunrise">
+                        </div>
+                        <div class="column">
+                          <img class="demo cursor" src="img_fjords_wide.jpg" style="width:100%" onclick="currentSlide(2)" alt="Trolltunga, Norway">
+                        </div>
+                        <div class="column">
+                          <img class="demo cursor" src="img_mountains_wide.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+                        </div>
+                        <div class="column">
+                          <img class="demo cursor" src="img_lights_wide.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+                        </div>
+                      </div>
                     </div>
                     <hr>
 
